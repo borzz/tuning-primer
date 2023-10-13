@@ -13,7 +13,7 @@ Download and run tuning-primer.sh.
 
 If you don't like downloading anything and you do like living dangerously, you could instead run it with something like this¹:
 
-curl -L https://raw.githubusercontent.com/BMDan/tuning-primer.sh/main/tuning-primer.sh | bash
+curl -L https://github.com/borzz/tuning-primer/blob/master/tuning-primer.sh | bash
 
 
 MySQLTuner.pl
