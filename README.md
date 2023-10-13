@@ -7,6 +7,13 @@ Modernized [MySQL performance tuning primer script](https://github.com/borzz/tun
 Based on the [MySQL performance tuning primer script](https://launchpad.net/mysql-tuning-primer) version 1.6-r1 released on 2011-08-06 by Matthew Montgomery and licenced under the GPLv2.
 
 
+How to use
+===================
+Download and run tuning-primer.sh.
+
+If you don't like downloading anything and you do like living dangerously, you could instead run it with something like this¹:
+
+curl -L https://raw.githubusercontent.com/BMDan/tuning-primer.sh/main/tuning-primer.sh | bash
 
 
 MySQLTuner.pl
