@@ -1,0 +1,95 @@
+
+flowchart LR
+    %% USERS
+    U1[User<br/>obaryshev]
+    U2[User<br/>ivanov]
+    SA[Service Account<br/>ansible-svc]
+    O1[ORG<br/>Core NetOps]
+    O2[ORG<br/>Service Delivery]
+    O3[ORG<br/>Telephony]
+    O4[ORG<br/>Ext Vodafone]
+    O5[ORG<br/>Vendors]
+    OA[ORG<br/>Automation]
+    P1[PROFILE<br/>Core Admin]
+    P2[PROFILE<br/>Core RO]
+    P3[PROFILE<br/>Service Delivery]
+    P4[PROFILE<br/>Telephony]
+    P5[PROFILE<br/>Ext Monitoring]
+    PV[PROFILE<br/>Vendor]
+    PA[PROFILE<br/>Automation]
+    R15[ROLE<br/>net-admin<br/>priv 15]
+    R7[ROLE<br/>net-operator<br/>priv 7]
+    R3[ROLE<br/>net-readonly<br/>priv 3]
+    RA[ROLE<br/>net-automation]
+
+    RD1[ROLE<br/>radius-aggregation]
+    RD2[ROLE<br/>radius-access]
+    RD3[ROLE<br/>radius-gpon]
+
+    RBc[ROLE<br/>ssh-bastion-core]
+    RBv[ROLE<br/>ssh-bastion-voip]
+    RBe[ROLE<br/>ssh-bastion-ext]
+
+    RM1[ROLE<br/>cacti-read]
+    RM2[ROLE<br/>zabbix-read]
+
+    RE[ROLE<br/>ext-vendor-flag]
+    S1["(RADIUS)"]
+    S2["(SSH Bastion)"]
+    S3["(Monitoring)"]
+    S4["(SUDO)"]
+    U1 --> O1
+    U2 --> O2
+    SA --> OA
+
+    %% ORG → PROFILE
+    O1 --> P1
+    O2 --> P3
+    O3 --> P4
+    O4 --> P5
+    O5 --> PV
+    OA --> PA
+
+    %% PROFILE → ROLES
+    P1 --> R15
+    P1 --> RD1
+    P1 --> RD2
+    P1 --> RD3
+    P1 --> RBc
+
+    P3 --> R3
+    P3 --> RD1
+    P3 --> RM1
+    P3 --> RM2
+
+    P4 --> RBv
+
+    P5 --> R3
+    P5 --> RD1
+    P5 --> RD2
+    P5 --> RD3
+    P5 --> RBe
+    P5 --> RE
+    P5 --> RM1
+    P5 --> RM2
+
+    PV --> R3
+    PV --> RBe
+    PV --> RE
+
+    PA --> RA
+
+    %% ROLES → SYSTEMS
+    R15 --> S1
+    R7 --> S1
+    R3 --> S1
+    RA --> S1
+
+    RBc --> S2
+    RBv --> S2
+    RBe --> S2
+
+    RM1 --> S3
+    RM2 --> S3
+
+    R15 --> S4
